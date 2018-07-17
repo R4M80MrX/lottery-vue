@@ -17,7 +17,6 @@
     },
     methods: {
       handleItemClick(historycode) {
-
         this.$router.push({
           name: 'LotteryDetail',
           params: {

@@ -54,10 +54,12 @@
             break;
           case 3 :
             if (this.isLogin) {
+              console.log(this.isLogin);
               this.$router.push('/my');
             } else {
               this.$router.push('/login')
             }
+            break;
         }
       }
     }
