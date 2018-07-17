@@ -14,3 +14,7 @@ yarn-error.log*
 *.sln
 
 package-lock.json
+.gitignore
+.babelrc
+.editorconfig
+.postcssrc.js
