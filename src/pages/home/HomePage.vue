@@ -6,6 +6,8 @@
     <carousel></carousel>
     <!--历史中奖信息-->
     <history-list :list="historyList"></history-list>
+    <!--菜单栏-->
+    <menu-bar :index="1"></menu-bar>
   </div>
 </template>
 
@@ -13,6 +15,8 @@
   import TitleBar from '../common/TitleBar'
   import Carousel from '../common/Carousel'
   import HistoryList from './components/HistoryList'
+  import MenuBar from '../common/MenuBar'
+
   import axios from 'axios'
 
   export default {
@@ -20,7 +24,8 @@
     components: {
       TitleBar,
       Carousel,
-      HistoryList
+      HistoryList,
+      MenuBar
     },
     data() {
       return {

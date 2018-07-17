@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div v-for="history in list" @click="handleItemClick(history.code)">
+    <div v-for="history in list" :key="history.code" @click="handleItemClick(history.code)">
       <history-item :history="history"></history-item>
     </div>
   </div>
@@ -17,9 +17,13 @@
     },
     methods: {
       handleItemClick(historycode) {
+
         this.$router.push({
           name: 'LotteryDetail',
-          code: historycode
+          params: {
+            code: historycode
+          }
+
         })
       }
     }

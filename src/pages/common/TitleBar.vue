@@ -30,7 +30,7 @@
 </script>
 
 <style scoped>
-  .div_class{
+  .div_back{
     position: absolute;
     left: 15px;
   }
