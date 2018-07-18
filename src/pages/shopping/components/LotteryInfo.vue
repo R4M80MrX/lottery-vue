@@ -1,12 +1,12 @@
 <template>
-  <div>
-    购物车页面
-  </div>
+    <div>
+      彩票信息
+    </div>
 </template>
 
 <script>
     export default {
-        name: "cart-page"
+        name: "LotteryInfo"
     }
 </script>
 

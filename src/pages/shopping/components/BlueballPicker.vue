@@ -1,12 +1,12 @@
 <template>
-  <div>
-    购物车页面
-  </div>
+    <div>
+      篮球选择
+    </div>
 </template>
 
 <script>
     export default {
-        name: "cart-page"
+        name: "BlueballPicker"
     }
 </script>
 
