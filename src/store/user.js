@@ -1,33 +1,30 @@
-const key = 'user';
-
+let defaultUser = localStorage.getItem('user');
+if (!defaultUser) {
+  defaultUser = null;
+}
 const state = {
-  user: null
+  user: defaultUser
 };
 
 const getters = {
-  isLogin: (state) => state.user !== null,
+  //判断用户是否登录
+  isLogin: (state) => state.user != null,
+  //获取用户信息
   user: (state) => state.user
 };
 
 const actions = {
-  loadLocalUser: (context) => {
-    let user = localStorage.getItem(key);
-    context.commit('setUser', user);
-  },
+  //保存用户信息
   setUser: (context, user) => {
-    context.commit('setUser', user);
-  },
-  logout: (context) => {
-    localStorage.removeItem(key);
-    context.commit('setUser', null);
+    context.commit('mSetUser', user);
   }
 };
 
 const mutations = {
-  setUser: (state, user) => {
+  mSetUser: (state, user) => {
+    console.log(user);
     state.user = user;
-    //保存
-    localStorage.setItem(key, user);
+    localStorage.setItem('user', user);
   }
 };
 

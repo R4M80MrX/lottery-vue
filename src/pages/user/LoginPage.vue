@@ -10,7 +10,7 @@
         <!--2.登录注册的标题-->
         <div class="row">
           <div class="col-xs-6 text-center" style="color: green;">登录</div>
-          <div class="col-xs-6 text-center" onclick="location.href='03-注册页面.html'">注册</div>
+          <div class="col-xs-6 text-center" onclick="">注册</div>
         </div>
 
         <!--3.水平分割线-->
@@ -26,7 +26,7 @@
         </div>
 
 
-        <!--9.注册-->
+        <!--9.登录-->
         <div class="form-group">
           <input type="button" class="form-control btn btn-success" value="登录"
                  @click="handleLogin()">
@@ -46,7 +46,7 @@
 
 <script>
   import TitleBar from '@/pages/common/TitleBar'
-  import {mapGetters, mapActions} from 'vuex'
+  import {mapActions} from 'vuex'
 
   import axios from 'axios'
 
@@ -62,7 +62,7 @@
       }
     },
     methods: {
-      ...mapGetters(['setUser']),
+      ...mapActions(['setUser']),
       handleLogin() {
         axios.get('/api/login', {
           params: {
@@ -71,7 +71,7 @@
           }
         }).then(res => {
           this.setUser(res.data.data);
-          this.$router.push('/user');
+          this.$router.push('/my');
         })
       }
     }

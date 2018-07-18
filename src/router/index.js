@@ -5,7 +5,7 @@ import LotteryDetail from '@/pages/home/LotteryDetail'
 import LoginPage from '@/pages/user/LoginPage'
 import MyPage from '@/pages/user/MyPage'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -27,7 +27,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/my',
+      path: '/myPage',
       name: 'MyPage',
       component: MyPage,
       props: true

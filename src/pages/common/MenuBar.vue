@@ -38,9 +38,7 @@
     },
     computed: {
       //获取登录信息
-      ...mapGetters({
-        isLogin: 'isLogin'
-      })
+      ...mapGetters(['isLogin'])
     },
     methods: {
       handleClick(index) {
@@ -54,8 +52,7 @@
             break;
           case 3 :
             if (this.isLogin) {
-              console.log(this.isLogin);
-              this.$router.push('/my');
+              this.$router.push('/myPage');
             } else {
               this.$router.push('/login')
             }
