@@ -13,13 +13,17 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
+
   export default {
     name: "cart-menu-bar",
-    props: ['cartSize'],
     methods: {
       goToCart() {
         this.$router.push('/cart');
       }
+    },
+    computed: {
+      ...mapGetters(['cartSize'])
     }
   }
 </script>

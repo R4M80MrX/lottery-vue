@@ -48,7 +48,7 @@
     <div style="margin-bottom: 58px;height: 58px;"></div>
 
     <!--5.底部菜单栏-->
-    <cart-menu-bar :cartSize="cartSize"></cart-menu-bar>
+    <cart-menu-bar></cart-menu-bar>
   </div>
 </template>
 
@@ -59,7 +59,7 @@
   import LotteryInfo from './components/LotteryInfo'
   import CartMenuBar from './components/CartMenuBar'
   //导入vuex提供的辅助函数
-  import {mapActions, mapGetters} from 'vuex'
+  import {mapActions} from 'vuex'
   import BallUtils from '@/utils/BallUtils'
 
   export default {
@@ -79,33 +79,44 @@
         blueBall: null,
         randomRedBalls: null,
         randomBlue: null,
-        num: 1 ,// 机选几注,默认1注
-        cartSize: 0
+        num: 1,// 机选几注,默认1注
       }
-
     },
     methods: {
-
-      handleRedballsChange() {
-
+      ...mapActions(['addToCart']),
+      handleRedballsChange(redBalls) {
+        this.redBalls = redBalls;
       },
-      handleBlueballChange() {
-
+      handleBlueballChange(blueBall) {
+        this.blueBall = blueBall;
       },
       handleAdd() {
-
+        console.log(this.redBalls + ' ' + this.blueBall);
+        let cartItem = {
+          redBalls: this.redBalls,
+          blueBall: this.blueBall,
+          count: 1
+        };
+        this.addToCart(cartItem);
       },
-      goToCart() {
-
-      },
+      /**
+       * 机选幸运号
+       */
       handleRandom() {
-
+        console.log("机选:" + this.num);
+        for (let i = 0; i < this.num; i++) {
+          this.randomRedBalls = BallUtils.randomRed();
+          this.randomBlue = BallUtils.randomBlue();
+          let cartItem = {
+            redBalls: this.randomRedBalls,
+            blueBall: this.randomBlue,
+            count: 1
+          };
+          console.log("cartItem" + JSON.stringify(cartItem));
+          this.addToCart(cartItem);
+        }
       }
     }
-    // ,
-    // computed: {
-    //   ...mapGetters(['cartSize'])
-    // }
   }
 </script>
 
