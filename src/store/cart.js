@@ -89,7 +89,7 @@ const mutations = {
 
   mDeleteItem(state, cartItem) {
     let index = state.carts.indexOf(cartItem);
-    state.carts.slice(index, 1);
+    state.carts.splice(index, 1);
 
     localStorage.setItem('carts', JSON.stringify(state.carts));
   }
