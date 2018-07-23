@@ -98,7 +98,7 @@ mounted() {
 
     - 通过$emit触发事件来通知父组件修改数据
 
-    ![](src/assets/img/父传子.png)
+    ![](src/assets/img/子传父.png)
 
 - 非父子组件通过vuex来通信
 
